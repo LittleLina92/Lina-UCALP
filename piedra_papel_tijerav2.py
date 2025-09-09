@@ -61,3 +61,4 @@ elif puntos_usuario < puntos_pc:
 else:
     print("Empate total :/ .")
 
+
