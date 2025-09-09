@@ -1,11 +1,9 @@
-# piedra_papel_tijerav2.py
-# Juego con rondas configurables, validación de entrada y corte temprano
+# version con seleccion previa de rondas y corte temprano
 
 import random
 
-# Configurable: cantidad de rondas totales (mejor de 5 por defecto)
-rondas_totales = 5
-
+#cantidad de rondas totales, se puede configurar
+rondas_totales = int(input("Cuantas rondas jugamos? (las que quieras, pueden ser 500 xD ) "))
 opciones = ["piedra", "papel", "tijera"]
 
 print("¡Bienvenido! Vamos a jugar a Piedra, Papel o Tijera.")
@@ -19,7 +17,7 @@ puntos_pc = 0
 while ronda <= rondas_totales:
     print(f"\nRonda {ronda}")
 
-    # Validación de entrada: NO cuenta la ronda hasta que sea válida
+    #  NO cuenta la ronda hasta que sea un valor valido piedra,papel,tijera
     while True:
         jugada_usuario = input("Tu jugada: ").strip().lower()
         if jugada_usuario in opciones:
@@ -42,7 +40,7 @@ while ronda <= rondas_totales:
         print("Perdiste la ronda.")
         puntos_pc += 1
 
-    # Chequeo de corte temprano: si el rival ya no puede alcanzarte
+    # check de corte temprano: si el rival ya no puede alcanzarte o no podes alcanzar al rival 
     rondas_restantes = rondas_totales - ronda
     if puntos_usuario > puntos_pc + rondas_restantes:
         print("\nCorte temprano: ya no te pueden alcanzar.")
@@ -57,8 +55,9 @@ print("\n=== Resultado final ===")
 print(f"Tus puntos: {puntos_usuario} | Puntos de la PC: {puntos_pc}")
 
 if puntos_usuario > puntos_pc:
-    print("¡Ganaste el juego! 🎉")
+    print("¡Ganaste el juego! :D")
 elif puntos_usuario < puntos_pc:
-    print("La computadora ganó el juego.")
+    print("La computadora ganó el juego :( ")
 else:
-    print("Empate total.")
+    print("Empate total :/ .")
+
